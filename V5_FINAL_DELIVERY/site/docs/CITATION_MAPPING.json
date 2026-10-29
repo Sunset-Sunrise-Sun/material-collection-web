@@ -1,0 +1,138 @@
+{
+  "scope": "核对原报告综述与参考文献条目的对应关系，不表示独立取得或复核全部全文。",
+  "rows": [
+    {
+      "reference": 1,
+      "entry": "陆杰华, 邱佳美. 智治普惠：智慧养老服务可及性的空间治理探究[J]. 甘肃社会科学, 2026(2):113-123. DOI:10.15891/j.cnki.cn62-1093/c.2026.02.015.",
+      "category": "空间研究",
+      "sourceIndex": 9,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 2,
+      "entry": "Liu Y, Ye C, Wu Y, Fang K, Mi J. Assessing spatial equity in integrated health care facilities for older adults: a case study in the metropolis of Guangzhou, China[J]. Frontiers in Public Health, 2026, 14:1890540. DOI:10.3389/fpubh.2026.1890540.",
+      "category": "空间研究",
+      "sourceIndex": 9,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 3,
+      "entry": "陈桂生, 杨春香. 从代际鸿沟到普惠可及：数字乡村公共服务适老化的融合与创新[J]. 中州学刊, 2024(6):95-102.",
+      "category": "空间研究",
+      "sourceIndex": 9,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 4,
+      "entry": "李娟. 人工智能赋能的精准化社区养老服务模式：构建逻辑、实践困境与发展策略[J]. 北京社会科学, 2026(1):94-104. DOI:10.13262/j.bjsshkxy.bjshkx.20260108.",
+      "category": "空间研究",
+      "sourceIndex": 9,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 5,
+      "entry": "米加宁, 张斌, 周为. 人工智能驱动公共服务高质量发展：理论逻辑、实践模式和发展路径[J]. 北京工业大学学报（社会科学版）, 2025, 25(6):45-61. DOI:10.12120/bjutskxb202506045.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 6,
+      "entry": "杜盼盼, 陈钊, 高传胜. 人工智能与养老产业发展[J]. 广东财经大学学报, 2026(1):17-32. DOI:10.20209/j.gcxb.441711.20260203.001.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 7,
+      "entry": "Ben-Sadoun G, Michel E, Annweiler C, Sacco G. Human Fall Detection Using Passive Infrared Sensors with Low Resolution[J]. Clinical Interventions in Aging, 2022, 17:35-53.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 8,
+      "entry": "Sykes ER. Next-generation fall detection: harnessing human pose estimation and transformer technology[J]. Health Systems, 2025, 14(2):85-103. DOI:10.1080/20476965.2024.2395574.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 9,
+      "entry": "Gorce P, Jacquier-Bret J. Fall Detection in Elderly People: A Systematic Review of Ambient Assisted Living and Smart Home-Related Technology Performance[J]. Sensors, 2025, 25(21):6540. DOI:10.3390/s25216540.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 10,
+      "entry": "Gao Y, Xu D, Li X, Wang J, Wang L, Wu B, Zhao H, Qiu X, Zhu W. Machine Learning and Deep Learning Models for Predicting Future Falls in Community-Dwelling Older Adults: Systematic Review and Meta-Analysis[J]. Journal of Medical Internet Research, 2026, 28:e84844. DOI: 10.2196/84844",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 11,
+      "entry": "Broadley RW, Klenk J, Thies SB, Kenney LPJ, Granat MH. Methods for the Real-World Evaluation of Fall Detection Technology: A Scoping Review[J]. Sensors, 2018, 18(6):2060. DOI:10.3390/s18062060.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 12,
+      "entry": "Usmani S, Saboor A, Haris M, Khan MA, Park H. Latest Research Trends in Fall Detection and Prevention Using Machine Learning: A Systematic Review[J]. Sensors, 2021, 21(15):5134. DOI:10.3390/s21155134.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 13,
+      "entry": "Chen L, Yao W. Fall detection and pre-impact prediction technologies in older adults: a scoping review of translational maturity[J]. Frontiers in Public Health, 2026, 14:1737644. DOI:10.3389/fpubh.2026.1737644.",
+      "category": "技术研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 14,
+      "entry": "朱浩. 人工智能赋能社区居家养老服务精准化：内在逻辑、现实困境与优化路径——以上海市C区为例[J]. 电子政务, 2026(9):105-116. DOI:10.16582/j.cnki.dzzw.2026.09.009.",
+      "category": "治理与实施研究",
+      "sourceIndex": 10,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 15,
+      "entry": "杨立雄, 覃珍玲. 智慧养老的工具化困境与价值理性重构[J]. 学术研究, 2026(4):113-121.",
+      "category": "治理与实施研究",
+      "sourceIndex": 11,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 16,
+      "entry": "杨一帆. 人工智能如何重构养老服务体系？——基于“技术—制度—主体”互构的治理分析[J]. 学习与实践, 2026(6):34-44. DOI:10.19624/j.cnki.cn42-1005/c.2026.06.003.",
+      "category": "治理与实施研究",
+      "sourceIndex": 11,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 17,
+      "entry": "朱荟, 吴梓睿. 人工智能+中国式养老的理论转向、算法风险与赋能路径[J]. 南开学报（哲学社会科学版）, 2026(2):58-67.",
+      "category": "治理与实施研究",
+      "sourceIndex": 11,
+      "supportMode": "原稿单项或组内引述"
+    },
+    {
+      "reference": 18,
+      "entry": "李立清, 栾文婷. 生成式人工智能嵌入公共服务治理的作用机理与风险防范[J]. 南昌大学学报（人文社会科学版）, 2025, 56(3):113-124. DOI:10.13764/j.cnki.ncds.2025.03.009.",
+      "category": "治理与实施研究",
+      "sourceIndex": 12,
+      "supportMode": "原稿综合段合并引用，不扩写单独发现"
+    },
+    {
+      "reference": 19,
+      "entry": "张福顺, 刘俊敏. 人工智能赋能养老服务发展问题探讨：价值意涵、实践基础与风险防范[J]. 当代经济管理, 2025, 47(10):61-68. DOI:10.13253/j.cnki.ddjjgl.2025.10.007.",
+      "category": "治理与实施研究",
+      "sourceIndex": 12,
+      "supportMode": "原稿综合段合并引用，不扩写单独发现"
+    }
+  ]
+}

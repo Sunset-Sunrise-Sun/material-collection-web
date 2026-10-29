@@ -1,0 +1,10 @@
+{
+  "name": "guangzhou-ai-care-research",
+  "version": "0.5.0",
+  "private": true,
+  "description": "筑工杯广州AI养老研究成果网页，以v2报告为正文基线",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "check": "node --check dist/app.js && node --check dist/view-router.js && node --check dist/introduction.js && node --check dist/overview.js && node --check dist/map-slot.js && node --check dist/map-provider.js && node --check dist/assets/maps/gz-district-map.js && python3 scripts/verify_content.py && python3 scripts/verify_visuals.py && node scripts/verify_map_slot.mjs && python3 scripts/verify_views.py && python3 scripts/verify_map_integration_v5.py"
+  }
+}

@@ -1,0 +1,23 @@
+{
+ "blocked": {
+  "fallback": 1,
+  "fallbackText": "地图暂不可用；区级图表、审计与报告正文仍可正常阅读。",
+  "cards": 0,
+  "paras": 82,
+  "ch4": true,
+  "figures": 4
+ },
+ "recovered": true,
+ "missing": {
+  "state": 2,
+  "panel": "海珠区\nadcode 440105\n—（缺失）\n\n备案床位密度（每千名 60+ 老人） · 床位 2026-09；人口 2025 年末\n\n全部 8 项指标\n备案床位密度（每千名 60+ 老人）\n—（缺失）\n高龄化率（80+ 占 60+ 比重）\n15.1%\n60+ 人口占户籍人口比重\n30.1%\n长者饭堂密度（每万名 6",
+  "hasZero": false,
+  "hasMissing": true
+ },
+ "consoleErrors": [],
+ "failed": [
+  "",
+  "",
+  ""
+ ]
+}

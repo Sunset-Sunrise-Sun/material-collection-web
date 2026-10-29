@@ -1,0 +1,10 @@
+{
+ "component_sha256": "47c9868987d9a3a66172292ad032ad787d753a13263a970fa0ee5ded257b4d32",
+ "metrics_sha256": "0a4b15f0cd2403ed0174b22954c91e9d3862405b9dfc5ea795e5da701f9f5e3d",
+ "geojson_sha256": "aa3e55870e55cc925ab4a55073ce4f6d28c43489023e1c3b9a52e79ea8c8b14e",
+ "provider_sha256": "d3950a56715e558a72bd4d40ba688e96d73a1f0e3d18ce6f24c95131a2041f90",
+ "boundary_source": "OpenStreetMap contributors（Nominatim lookup）",
+ "boundary_license": "ODbL 1.0",
+ "review_status": "not_obtained",
+ "note": "V5 安全候选：替换原 DataV 边界层；OSM 许可明确，但官方标准画法图一致性/审图号仍未完成；未发布。"
+}

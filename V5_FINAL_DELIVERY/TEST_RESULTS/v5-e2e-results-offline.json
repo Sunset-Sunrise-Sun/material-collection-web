@@ -1,0 +1,264 @@
+{
+ "summary": {
+  "total": 14,
+  "pass": 14,
+  "fail": 0,
+  "failures": []
+ },
+ "results": [
+  {
+   "name": "A1 map-rendered-11-districts-labels-bars",
+   "pass": true,
+   "detail": "{\"ready\":true,\"paths\":11,\"labels\":[\"荔湾区\",\"越秀区\",\"海珠区\",\"天河区\",\"白云区\",\"黄埔区\",\"番禺区\",\"花都区\",\"南沙区\",\"从化区\",\"增城区\"],\"bars\":11,\"metricPills\":8,\"selected\":null,\"metric\":\"bedDensity\",\"shadowText\":\"广州市 11 区养老供给结构（区级）\",\"mapH\":984,\"panel\":\"区级供给结构 · 使用说明\\n\\n点击地图中的区查看详情；或按 Tab 进入地图，用 方向键 在 11 区之间移动，Enter 选中，Esc 清空选中。\\n\\n当前指标说明\\n指标\\n备案床位密度（每千名 60+ 老人）（床位 2026-09；人口 2\"}"
+  },
+  {
+   "name": "A2 content-regression",
+   "pass": true,
+   "detail": "{\"chapters\":5,\"paras\":89,\"chars\":13766,\"headingBlocks\":41,\"domHeadings\":49,\"refs\":19,\"figures\":4,\"ch2\":2,\"bed\":true,\"panel\":0,\"mapSlots\":1}"
+  },
+  {
+   "name": "B1 8-metrics-click-sync-88-values",
+   "pass": true,
+   "detail": "[{\"id\":\"bedDensity\",\"ok\":true},{\"id\":\"elderly80Share\",\"ok\":true},{\"id\":\"elderly60Share\",\"ok\":true},{\"id\":\"mealDensity\",\"ok\":true},{\"id\":\"institutionDensity\",\"ok\":true},{\"id\":\"primaryCareDensity\",\"ok\":true},{\"id\":\"elderly65Share\",\"ok\":true},{\"id\":\"bedDensitySensitivity\",\"ok\":true}]"
+  },
+  {
+   "name": "C1 map-select-updates-bar-detail",
+   "pass": true,
+   "detail": "{\"bar\":[\"440105\"],\"panel\":true,\"snippet\":\"海珠区\\nadcode 440105\\n20.8\\n床 / 千名 60+\\n\\n床位密度（口径敏感度：2020 常住分母） · 床位 2026-09；人口 2020 常住\\n\\n全部 8 项指标\\n备案床位密度（每千\"}"
+  },
+  {
+   "name": "C2 bar-click-updates-map-detail",
+   "pass": true,
+   "detail": "{\"selected\":\"440106\",\"bar\":[\"440106\"],\"panel\":true,\"events\":2}"
+  },
+  {
+   "name": "C3 reset-clears-selection",
+   "pass": true,
+   "detail": "{\"selected\":null,\"bars\":0}"
+  },
+  {
+   "name": "C4 zoom-wheel-pan-reset",
+   "pass": true,
+   "detail": "{\"view0\":[0,0,733.31,1000],\"view1\":[122.22,166.67,488.87,666.67],\"view2\":[188.47,257.03,355.95,485.4],\"view3\":[140.45,232.58,355.95,485.4],\"view4\":[0,0,733.31,1000],\"zoomButton\":true,\"wheel\":true,\"pan\":true,\"reset\":true}"
+  },
+  {
+   "name": "C5 keyboard-enter-escape",
+   "pass": true,
+   "detail": "{\"keySel\":\"440105\",\"keyEsc\":null}"
+  },
+  {
+   "name": "D1 disclosure-target-size-and-click",
+   "pass": true,
+   "detail": "{\"count\":27,\"minH\":45,\"icons\":27,\"s\":{\"x\":742,\"y\":502.734375},\"before\":false,\"after\":{\"open\":true,\"focus\":\"SUMMARY\"}}"
+  },
+  {
+   "name": "E1 mobile-390-no-horizontal-overflow",
+   "pass": true,
+   "detail": "{\"innerWidth\":390,\"clientWidth\":390,\"scrollWidth\":390,\"mapW\":346,\"bars\":11,\"paths\":11}"
+  },
+  {
+   "name": "E2 mobile-touch-selects-map-and-bar",
+   "pass": true,
+   "detail": "{\"selected\":\"440105\",\"bars\":[\"440105\"]}"
+  },
+  {
+   "name": "F1 no-external-http",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F2 no-script-errors",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "name": "F3 no-resource-failures",
+   "pass": true,
+   "detail": "[]"
+  }
+ ],
+ "initial": {
+  "ready": true,
+  "paths": 11,
+  "labels": [
+   "荔湾区",
+   "越秀区",
+   "海珠区",
+   "天河区",
+   "白云区",
+   "黄埔区",
+   "番禺区",
+   "花都区",
+   "南沙区",
+   "从化区",
+   "增城区"
+  ],
+  "bars": 11,
+  "metricPills": 8,
+  "selected": null,
+  "metric": "bedDensity",
+  "shadowText": "广州市 11 区养老供给结构（区级）",
+  "mapH": 984,
+  "panel": "区级供给结构 · 使用说明\n\n点击地图中的区查看详情；或按 Tab 进入地图，用 方向键 在 11 区之间移动，Enter 选中，Esc 清空选中。\n\n当前指标说明\n指标\n备案床位密度（每千名 60+ 老人）（床位 2026-09；人口 2"
+ },
+ "content": {
+  "chapters": 5,
+  "paras": 89,
+  "chars": 13766,
+  "headingBlocks": 41,
+  "domHeadings": 49,
+  "refs": 19,
+  "figures": 4,
+  "ch2": 2,
+  "bed": true,
+  "panel": 0,
+  "mapSlots": 1
+ },
+ "metricResults": [
+  {
+   "id": "bedDensity",
+   "clicked": true,
+   "metric": "bedDensity",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "备案床位密度（每千名 60+ 老人）\n床位 2026-09；人口 2025 年末 · 单位：床 / 千名 60+ · 小数位 1\n7.9\n73.3\n色带左端 = 11 区最小值，右端 = 11 区最大"
+  },
+  {
+   "id": "elderly80Share",
+   "clicked": true,
+   "metric": "elderly80Share",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "高龄化率（80+ 占 60+ 比重）\n2025 年末 · 单位：% · 小数位 1\n12.2\n16.3\n色带左端 = 11 区最小值，右端 = 11 区最大值；黑标 = 11 区中位数 13.6\n高度"
+  },
+  {
+   "id": "elderly60Share",
+   "clicked": true,
+   "metric": "elderly60Share",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "60+ 人口占户籍人口比重\n2025 年末 · 单位：% · 小数位 1\n13.5\n32.0\n色带左端 = 11 区最小值，右端 = 11 区最大值；黑标 = 11 区中位数 16.8\n高度：按指标值"
+  },
+  {
+   "id": "mealDensity",
+   "clicked": true,
+   "metric": "mealDensity",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "长者饭堂密度（每万名 60+ 老人）\n饭堂 2025-02；人口 2025 年末 · 单位：个 / 万名 60+ · 小数位 2\n2.45\n18.41\n色带左端 = 11 区最小值，右端 = 11 区"
+  },
+  {
+   "id": "institutionDensity",
+   "clicked": true,
+   "metric": "institutionDensity",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "养老机构密度（每万名 60+ 老人）\n机构 2026-09；人口 2025 年末 · 单位：家 / 万名 60+ · 小数位 2\n0.62\n1.76\n色带左端 = 11 区最小值，右端 = 11 区最"
+  },
+  {
+   "id": "primaryCareDensity",
+   "clicked": true,
+   "metric": "primaryCareDensity",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "基层医疗机构密度（每万名 60+ 老人）\n机构 2023-11；人口 2025 年末 · 单位：家 / 万名 60+ · 小数位 2\n0.51\n1.65\n色带左端 = 11 区最小值，右端 = 11 "
+  },
+  {
+   "id": "elderly65Share",
+   "clicked": true,
+   "metric": "elderly65Share",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "65+ 人口占户籍人口比重\n2025 年末 · 单位：% · 小数位 1\n9.3\n23.3\n色带左端 = 11 区最小值，右端 = 11 区最大值；黑标 = 11 区中位数 11.4\n高度：按指标值 "
+  },
+  {
+   "id": "bedDensitySensitivity",
+   "clicked": true,
+   "metric": "bedDensitySensitivity",
+   "valuesOk": true,
+   "title": "广州市 11 区养老供给结构（区级）",
+   "legend": "床位密度（口径敏感度：2020 常住分母）\n口径对照\n床位 2026-09；人口 2020 常住 · 单位：床 / 千名 60+ · 小数位 1\n9.7\n71.1\n色带左端 = 11 区最小值，右端 "
+  }
+ ],
+ "mapToBar": {
+  "bar": [
+   "440105"
+  ],
+  "panel": true,
+  "snippet": "海珠区\nadcode 440105\n20.8\n床 / 千名 60+\n\n床位密度（口径敏感度：2020 常住分母） · 床位 2026-09；人口 2020 常住\n\n全部 8 项指标\n备案床位密度（每千"
+ },
+ "barToMap": {
+  "selected": "440106",
+  "bar": [
+   "440106"
+  ],
+  "panel": true,
+  "events": 2
+ },
+ "reset": {
+  "selected": null,
+  "bars": 0
+ },
+ "z": {
+  "view0": [
+   0,
+   0,
+   733.31,
+   1000
+  ],
+  "view1": [
+   122.22,
+   166.67,
+   488.87,
+   666.67
+  ],
+  "view2": [
+   188.47,
+   257.03,
+   355.95,
+   485.4
+  ],
+  "view3": [
+   140.45,
+   232.58,
+   355.95,
+   485.4
+  ],
+  "view4": [
+   0,
+   0,
+   733.31,
+   1000
+  ],
+  "zoomButton": true,
+  "wheel": true,
+  "pan": true,
+  "reset": true
+ },
+ "afford": {
+  "count": 27,
+  "minH": 45,
+  "icons": 27,
+  "s": {
+   "x": 742,
+   "y": 502.734375
+  },
+  "before": false
+ },
+ "mobile": {
+  "innerWidth": 390,
+  "clientWidth": 390,
+  "scrollWidth": 390,
+  "mapW": 346,
+  "bars": 11,
+  "paths": 11
+ },
+ "mobileSel": {
+  "selected": "440105",
+  "bars": [
+   "440105"
+  ]
+ },
+ "errors": [],
+ "external": []
+}
