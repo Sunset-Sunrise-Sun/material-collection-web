@@ -1,38 +1,40 @@
-# CHANGELOG V5.1（相对 V5 排版候选）
+# CHANGELOG V5.1（最终修订）
 
 **分支**：`feat/v5-layout-polish`
 **基线**：`feat/map-integration-v5` @ `fc35704d4c1839f3d83dc115c7fdb599ce4fe1f5`
-**性质**：仅布局与默认展开状态；不重做地图、不改研究数据/正文。
+**性质**：恢复原版双卡片布局、图表常显、v2.1 措辞/四主题同步；不重做地图/全文。
 
-## 新增
-
-| 文件 | 原因 |
-|---|---|
-| `site/dist/v51-layout.css` | 地图 + 精简概览并排；完整详情全宽在下；桌面/移动端/打印布局；复制面板的样式 |
-| `V5.1_FINAL_DELIVERY/` 根文档与 `TEST_RESULTS/` | V5.1 测试、截图、离线包 |
-
-## 修改
+## 最终保留的修改
 
 | 文件 | 修改 |
 |---|---|
-| `site/dist/map-provider.js` | 上半部改为 `map-upper`（地图 + `map-compact` 精简概览）；完整详情 `#map-detail` 由组件同一 `#gz-panel` 投影生成；选中/指标/重置事件同步概览和详情；不新增独立状态；地图设 `external-panel` |
-| `site/dist/assets/maps/gz-district-map.js` | 组件 CSS 增加 `:host([external-panel])`：隐藏内部长侧栏、主区单列、地图容器高度收敛到 `clamp(400px,52vh,520px)`；**核心渲染/交互/数据逻辑未改** |
-| `site/dist/app.js` | image1 探索性散点图的 `original-extra` 增加 `open`，无需点击即可见 |
-| `site/dist/overview.js` | `original()` 将报告图从完整原文折叠中移到直接渲染区域；床位密度图 `map-original-record` 与相关统计 `analysis-disclosure` 默认 `open`；增加“含图表 details 自动 open”兜底 |
-| `site/dist/index.html` | 引用 `v51-layout.css`；版本标注 V5.1 |
-| `site/package.json` | 0.5.0 → 0.5.1 |
-| `site/README.md` | V5.1 状态、布局/图表说明 |
-| 根 `README.md`、`TEST_REPORT_V5.1.md`、`BOUNDARY_LICENSE_AND_REVIEW.md`、`OFFLINE_PACKAGE.md`、`HANDOFF_V5.1.md` | V5.1 交付/测试/交接 |
+| `site/dist/app.js` | image1 探索性散点图 `original-extra` 默认 `open`；移除旧“第五主题待核”aside |
+| `site/dist/overview.js` | `original()` 将报告图从完整原文折叠移出直接显示；床位密度图/相关统计默认 `open`；移除旧第五主题待核卡片/aside；含图表 details 自动 open 兜底 |
+| `site/dist/content.json` | v2.1 同步：供给侧段落删除一句；4.4 导语“五→四”；4.4.4 标题改为“供给侧资金人力有限”；更新 version/sourceName/sourceSha256；统计/审计/文献未改 |
+| `site/dist/index.html` | 版本 V5.1；阅读说明改为 v2.1 四主题；无布局 split CSS |
+| `site/package.json` | 0.5.1 |
+| `site/README.md`、根 README/`V21_CONTENT_DIFF.md`/`TEST_REPORT_V5.1.md`/`CHANGELOG_V5.1.md`/`HANDOFF_V5.1.md`/`OFFLINE_PACKAGE.md` | 最终交付/测试/内容差异 |
+
+## 已撤销的 V5.1 尝试
+
+本轮曾尝试“地图 + 精简概览并排、完整详情下方”的 split 布局，但用户验收后认为右侧变成一张过高概览卡、下方空白大、重点不突出。最终已撤销：
+
+- 删除 `v51-layout.css` 及 split 布局；
+- 恢复 V5 原 `map-provider.js` 与 `gz-district-map.js` 的右侧两张卡片结构；
+- 地图/8指标/2.5D/联动/缩放/平移/键盘/移动端未重写；
+- 未把完整详情移到地图下方；未合并卡片。
+
+分支历史中保留了该尝试提交，可独立回退/审计；最终工作日树为恢复后的双卡结构。
 
 ## 未改
 
-- `dist/content.json`、`dist/visual-data.json`、`district_metrics.json`、`gz_districts_11.geojson`、4 原图、正文/统计口径/参考文献；
-- 地图边界（OSM/ODbL）与地图审核状态；
-- 图表标题、图例、坐标轴、Spearman/p/n、数据来源、质量提示；
-- 原 V5 ZIP（保留未覆盖）。
+- `visual-data.json`、`district_metrics.json`、`gz_districts_11.geojson`、4 原图；
+- 19 条参考文献、S1—S7 审计表 42 字段、统计数字和研究结论；
+- 地图 OSM/ODbL 边界与审核状态；
+- 原 V5 `V5_FINAL_DELIVERY.zip`（未覆盖）。
 
-## 行为变化
+## 内容变化摘要
 
-- 地图上方高度降低，右侧不再放置完整长面板；完整详情使用整行宽度。
-- 所有图表默认可见；长篇原文/章节目录/审计行内详情/时间线仍可折叠。
-- 图表的 `summary` 若包含图表会被自动展开；纯文字补充不强制展开。
+- 正文 89 段不变；字符数 13,766 → **13,747**（删去 19 字符）；
+- 4.4 四主题；4.4.4 标题同步；
+- 图表说明、来源、ρ/p/n、图例保留。

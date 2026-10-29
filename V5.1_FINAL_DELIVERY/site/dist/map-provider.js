@@ -1,6 +1,4 @@
-/* Host adapter for the frozen v1.0.0 map with V5.1 split layout.
-   The component remains the single source of state. The compact panel and full
-   detail area are display projections of the same component, not a second model. */
+﻿/* Host adapter for the frozen v1.0.0 map. Vendor script/data remain byte-identical. */
 (() => {
  'use strict';
  const resource = name => new URL('assets/maps/' + name, document.baseURI).href;
@@ -35,34 +33,7 @@
   if(metrics.meta?._fixture || metrics.districts?.length!==11 || metrics.metrics?.length!==8 || geometry.features?.length!==11) throw new Error('unexpected map contract');
   const codes=new Set(metrics.districts.map(d=>String(d.adcode)));
   if(codes.size!==11 || geometry.features.some(f=>!codes.has(String(f.properties.adcode)))) throw new Error('district mismatch');
-
   const map=node('gz-district-map');map.id='guangzhou-district-map';map.setAttribute('aria-label','广州11区人口结构与供给代理交互地图');
-  map.setAttribute('external-panel',''); // component hides its long side panel; this host renders a compact overview + full detail
-  const upper=node('div','map-upper');
-  const compact=node('aside','map-compact');compact.setAttribute('aria-label','区级概览');
-  const compactKicker=node('p','map-compact-kicker','区级概览 / 当前指标');
-  const compactName=node('h3','map-compact-name','请选择行政区');
-  const compactValue=node('p','map-compact-value','点击地图或下方条形选择区');
-  const compactMeta=node('p','map-compact-meta');
-  const compactRange=node('p','map-compact-range');
-  const compactKey=node('div','map-compact-key');
-  const compactSource=node('p','map-compact-source');
-  const compactHelp=node('div','map-compact-help');
-  compactHelp.append(
-   node('p',null,'读图：颜色与高度表达同一指标；点区或条形会同步选中。'),
-   node('p',null,'操作：滚轮或 +/− 缩放；拖拽平移；Enter 选中，Esc 清除。'),
-   node('p',null,'完整：下方列出全部 8 项指标、原始计数、来源、口径与质量提示。')
-  );
-  const compactQuality=node('p','map-compact-quality','数据边界：2026 备案床位≠实际可用床位；设施数量≠服务能力；2025/2026 跨年；2 条机构区划冲突、2 组饭堂同址、基层医疗 2023-11。');
-  compact.append(compactKicker,compactName,compactValue,compactMeta,compactRange,compactKey,compactSource,compactHelp,compactQuality);
-
-  const detail=node('section','map-detail');detail.id='map-detail';detail.setAttribute('aria-label','区级完整详情');
-  const detailHead=node('div','map-detail-head');
-  detailHead.append(node('h3',null,'区级完整详情'),node('p',null,'全部 8 项指标、原始计数、来源与质量提示；与地图、概览和条形联动。'));
-  const detailBody=node('div','map-detail-body');
-  detail.append(detailHead,detailBody);
-  upper.append(map,compact);
-
   const bars=node('section','gz-linked-bars');bars.setAttribute('aria-label','与地图联动的区级指标条形图');
   const title=node('h5','gz-bars-title');title.id='gz-bars-title';bars.setAttribute('aria-labelledby',title.id);
   const unit=node('p','chart-unit'), order=node('p','gz-order-note','区序沿用v2床位图，切换指标不重新排序；条长仅表示当前指标，不表示推广优先级。');
@@ -75,59 +46,17 @@
   const review = node('p', 'map-review-note', '边界为 OpenStreetMap 社区数据，非官方勘定界线；坐标系按 OSM 的 WGS84 记录；地图审核/审图号未取得，本候选仅供内部评审与离线验收，未发布到正式站点。');
   map.setAttribute('aria-describedby', attribution.id);
   bars.append(title,unit,order,rows,status,source);
-  container.replaceChildren(upper,detail,attribution,review,bars);
-
+  container.replaceChildren(map, attribution, review, bars);
   const orderNames=context.districtOrder || [];
   const districts=[...metrics.districts].sort((a,b)=>orderNames.indexOf(a.name.replace(/区$/,''))-orderNames.indexOf(b.name.replace(/区$/,'')));
   const valueOf=(d,id)=>d.missingMetrics?.includes(id)||!Number.isFinite(d.values[id])?null:d.values[id];
   const currentMetric=()=>metrics.metrics.find(m=>m.id===map.metric);
   const formatted=(d,m)=>{const v=valueOf(d,m.id);return v===null?'缺失':v.toFixed(m.decimals)+' '+m.unit;};
-
-  function compactRows(d,m) {
-   const ids=['bedDensity','elderly80Share','elderly60Share'].filter(id=>id!==m.id).slice(0,2);
-   return [m,...ids.map(id=>metrics.metrics.find(x=>x.id===id))].filter(Boolean).map(mm=>{
-    const val=d?valueOf(d,mm.id):null;
-    const text=val===null?'—':val.toFixed(mm.decimals)+' '+mm.unit;
-    const row=node('div','map-compact-keyrow');
-    row.append(node('span',null,mm.shortLabel||mm.label),node('strong',null,text));
-    return row;
-   });
-  }
-  function syncCompact() {
-   const state=map.getState?map.getState():{};
-   const m=currentMetric();if(!m)return;
-   const d=state.selected?metrics.districts.find(x=>String(x.adcode)===String(state.selected)):null;
-   compact.classList.toggle('is-empty',!d);
-   compactKicker.textContent='区级概览 / '+m.label;
-   if(d){
-    compactName.textContent=d.name;
-    compactValue.textContent=formatted(d,m);
-    compactMeta.textContent=m.years+' · '+m.unit;
-   }else{
-    compactName.textContent='请选择行政区';
-    compactValue.textContent='点击地图或下方条形选择区';
-    compactMeta.textContent=m.years+' · '+m.unit;
-   }
-   const vals=districts.map(x=>valueOf(x,m.id)).filter(v=>v!==null);
-   if(vals.length) {
-    const min=Math.min(...vals),max=Math.max(...vals),sorted=[...vals].sort((a,b)=>a-b),med=sorted[Math.floor((sorted.length-1)/2)];
-    compactRange.textContent='当前指标 11 区范围 '+min.toFixed(m.decimals)+'–'+max.toFixed(m.decimals)+' '+m.unit+'；中位数 '+med.toFixed(m.decimals)+'；条形保留 v2 区序。';
-   } else compactRange.textContent='当前指标暂无可比较值。';
-   compactKey.replaceChildren(...compactRows(d,m));
-   compactSource.textContent='来源：'+m.source+'；颜色与高度表达同一指标，完整口径见下方详情。';
-  }
-  function syncDetail() {
-   const panel=map.shadowRoot?.querySelector('#gz-panel');
-   if(panel && detailBody.innerHTML!==panel.innerHTML) detailBody.innerHTML=panel.innerHTML;
-  }
-  function syncProjectedView(){syncCompact();syncDetail();}
-
   function selection(code) {
    const m=currentMetric(), district=metrics.districts.find(d=>String(d.adcode)===code);
    rows.querySelectorAll('button').forEach(row=>{const on=row.dataset.adcode===code;row.classList.toggle('selected',on);row.setAttribute('aria-pressed',String(on));});
    status.textContent=district?`${district.name} · ${m.label}：${formatted(district,m)}；${m.years}。${m.qualityNote}`:'点击地图行政区或条形，查看相同指标与区级详情。';
    container.dataset.selected=code || '';
-   syncCompact();
   }
   function renderBars() {
    const m=currentMetric();if(!m)return;
@@ -151,13 +80,11 @@
     '边界审核：'+(boundary.reviewNote||'地图审核/审图号未取得；非官方勘定界线。')
    ].map(text=>node('p',null,text)));
    selection(map.getState().selected);
-   syncDetail();
   }
   const onSelect=e=>{if(e.detail.source==='map')selection(e.detail.adcode);};
   const onReset=()=>selection(map.getState().selected);
-  const onReady=()=>{container.dataset.integrationState='ready';renderBars();syncProjectedView();};
-  const onState=()=>syncProjectedView();
-  map.addEventListener('gzmap:ready',onReady);map.addEventListener('gzmap:select',onSelect);map.addEventListener('gzmap:select',onState);map.addEventListener('gzmap:metricchange',renderBars);map.addEventListener('gzmap:metricchange',onState);map.addEventListener('gzmap:reset',onReset);map.addEventListener('gzmap:reset',onState);
+  const onReady=()=>{container.dataset.integrationState='ready';renderBars();};
+  map.addEventListener('gzmap:ready',onReady);map.addEventListener('gzmap:select',onSelect);map.addEventListener('gzmap:metricchange',renderBars);map.addEventListener('gzmap:reset',onReset);
   const onHover=e=>rows.querySelectorAll('button').forEach(row=>row.classList.toggle('map-hover',row.dataset.adcode===e.detail.adcode));map.addEventListener('gzmap:hover',onHover);
   map.focusRule=null;
   const desktopLabelOffsets={'440103':[-55,20],'440104':[10,-55],'440105':[45,55],'440106':[55,-20],'440111':[0,-85],'440112':[55,35]};
@@ -168,9 +95,10 @@
   window.addEventListener('resize',onLabelResize);
   map.data=metrics;map.geometry=geometry;map.metric=metrics.meta.defaultMetric;map.heightMode=metrics.meta.defaultHeightMode;
   renderBars();
-  syncProjectedView();
   return ()=>{
-   window.removeEventListener('resize',onLabelResize);map.removeEventListener('gzmap:ready',onReady);map.removeEventListener('gzmap:select',onSelect);map.removeEventListener('gzmap:select',onState);map.removeEventListener('gzmap:metricchange',renderBars);map.removeEventListener('gzmap:metricchange',onState);map.removeEventListener('gzmap:reset',onReset);map.removeEventListener('gzmap:reset',onState);map.removeEventListener('gzmap:hover',onHover);map.destroy();
+   window.removeEventListener('resize',onLabelResize);map.removeEventListener('gzmap:ready',onReady);map.removeEventListener('gzmap:select',onSelect);map.removeEventListener('gzmap:metricchange',renderBars);map.removeEventListener('gzmap:reset',onReset);map.removeEventListener('gzmap:hover',onHover);map.destroy();
   };
  });
 })();
+
+

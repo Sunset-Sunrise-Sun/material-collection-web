@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * gz-district-map.js — 广州市 11 区养老供给结构 2.5D 交互地图组件
  * 版本：1.0.0（2026-10-28）
  *
@@ -283,9 +283,6 @@
 
     /* ---- 主体布局 ---- */
     '.main{display:grid;grid-template-columns:minmax(0,62fr) minmax(0,38fr);gap:14px;margin-top:12px;align-items:start}',
-    ':host([external-panel]) .main{grid-template-columns:minmax(0,1fr)}',
-    ':host([external-panel]) .sidecol{display:none}',
-    ':host([external-panel]) .mapwrap.is-size-lg{height:clamp(400px,52vh,520px)}',
     '.mapside{min-width:0}',
     '.sidecol{display:flex;flex-direction:column;gap:10px;min-width:0}',
 
@@ -2050,4 +2047,3 @@
   };
 
 })(typeof window !== 'undefined' ? window : this);
-

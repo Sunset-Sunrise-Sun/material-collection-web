@@ -75,7 +75,7 @@ function renderChapter(chapter) {
   // Original captions are rendered with their images or table, avoiding duplicate captions.
   if(chapter.number===4 && b.sourceIndex===68) html+=placeholder('4.1.3','2024—2025年养老供给结构变化图');
  }
- if(chapter.number===4)html+='<aside class="pending-note" id="field-theme-pending"><strong>4.4 第五观察主题：待核</strong>任务单要求保留五个观察主题，但本次 v2 原件在4.4下实际仅列出四个三级标题，以上已按原序全部保留。第五主题的标题与正文尚未取得，不据此补写研究发现。</aside>';
+
  return html+'</div></section>';
 }
 function renderAudit() {
