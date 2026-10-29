@@ -1,0 +1,53 @@
+name: Deploy V4 site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "V4_FINAL_DELIVERY.zip"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify and extract delivery archive
+        run: |
+          test -f V4_FINAL_DELIVERY.zip || { echo "Missing V4_FINAL_DELIVERY.zip at repository root"; exit 1; }
+          unzip -t V4_FINAL_DELIVERY.zip
+          unzip -q V4_FINAL_DELIVERY.zip -d extracted
+
+      - name: Check static entry point
+        run: |
+          test -s extracted/V4_FINAL_DELIVERY/site/dist/index.html
+          test -s extracted/V4_FINAL_DELIVERY/site/dist/app.js
+          test -s extracted/V4_FINAL_DELIVERY/site/dist/content.json
+          test -s extracted/V4_FINAL_DELIVERY/site/dist/district-panel-provider.js
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: extracted/V4_FINAL_DELIVERY/site/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
