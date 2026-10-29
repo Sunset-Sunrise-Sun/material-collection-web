@@ -1,0 +1,265 @@
+/* V5.1 split layout: map + compact overview side by side; full detail full-width below.
+   The map component renders the detail panel internally; the host copies that same
+   rendered panel below. No second data/state model is introduced. */
+
+#guangzhou-map-slot .map-upper {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(330px, .95fr);
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+}
+#guangzhou-map-slot .map-upper gz-district-map {
+  width: 100%;
+  min-width: 0;
+  min-height: 520px;
+}
+#guangzhou-map-slot .map-compact {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 17px 18px;
+  border: 1px solid #d2dcc9;
+  border-radius: 5px;
+  background: #f7f9f1;
+}
+.map-compact-kicker {
+  margin: 0 0 8px;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.map-compact-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+.map-compact.is-empty .map-compact-value {
+  margin: 8px 0 2px;
+  font-family: var(--sans);
+  font-size: 15px !important;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.map-compact-value {
+  margin: 6px 0 2px;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  line-height: 1.35;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.map-compact-meta {
+  margin: 0 0 12px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.map-compact-range {
+  margin: 0 0 12px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: #5b6556;
+}
+.map-compact-key {
+  border-top: 1px solid #dce4d6;
+  padding-top: 9px;
+}
+.map-compact-keyrow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-bottom: 1px dashed #e0e6da;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.map-compact-keyrow:last-child { border-bottom: 0; }
+.map-compact-keyrow span { color: #55614f; }
+.map-compact-keyrow strong {
+  font-weight: 500;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.map-compact-source {
+  margin: 10px 0 0;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.map-compact-help {
+  margin: 12px 0 0;
+  padding-top: 9px;
+  border-top: 1px solid #e0e6da;
+}
+.map-compact-help p {
+  margin: 0 0 5px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: #56634f;
+}
+.map-compact-quality {
+  margin: auto 0 0;
+  padding-top: 10px;
+  border-top: 1px solid #e0e6da;
+  font-size: 10px;
+  line-height: 1.85;
+  color: #6b5a3e;
+}
+
+#guangzhou-map-slot .map-detail {
+  margin: 20px 0 0;
+  padding: 20px 22px 22px;
+  border: 1px solid #d2dcc9;
+  border-radius: 6px;
+  background: #fffefb;
+  min-width: 0;
+}
+.map-detail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #e0e6d8;
+}
+.map-detail-head h3 {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+.map-detail-head p {
+  margin: 0;
+  max-width: 620px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.map-detail-body {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.map-detail-body .sel-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.map-detail-body .sel-head h3 {
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+.map-detail-body .sel-head .code {
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.map-detail-body .bigval {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 8px;
+}
+.map-detail-body .bigval .num {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  line-height: 1.4;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.map-detail-body .bigval .unit { font-size: 12px; color: var(--muted); }
+.map-detail-body .bigval .num.is-missing { font-size: 20px; color: #8a2020; }
+.map-detail-body .valyears { font-size: 11px; color: var(--muted); margin: 2px 0 0; }
+.map-detail-body h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #31414f;
+  margin: 19px 0 6px;
+}
+.map-detail-body .tbl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 22px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.map-detail-body .k { color: #4f5a4c; }
+.map-detail-body .v {
+  color: var(--ink);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.map-detail-body .v.miss { color: #8a2020; }
+.map-detail-body .v .u { color: var(--muted); font-size: 10px; margin-left: 4px; }
+.map-detail-body .row-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #eef1f5;
+  color: #4c5866;
+  font-size: 9px;
+  line-height: 1.6;
+}
+.map-detail-body .hint {
+  margin: 9px 0;
+  font-size: 11px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.map-detail-body .flaglist {
+  margin: 7px 0;
+  padding: 9px 12px 9px 27px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: #4a3a1d;
+  background: #fdf9f1;
+  border: 1px solid #f0e6d2;
+}
+.map-detail-body .flaglist li { margin: 1px 0; }
+.map-detail-body .okline { font-size: 11px; color: var(--muted); }
+.map-detail-body dl { margin: 7px 0; }
+.map-detail-body dt { font-size: 10px; font-weight: 600; color: var(--accent); margin-top: 8px; }
+.map-detail-body dd { margin: 1px 0 0; font-size: 12px; }
+.map-detail-body .badge-focus {
+  display: inline-block;
+  padding: 1px 5px;
+  background: #f6f1e5;
+  border: 1px solid #d5c6a4;
+  color: #6b5330;
+  font-size: 10px;
+}
+
+@media (max-width: 899px) {
+  #guangzhou-map-slot .map-upper { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  #guangzhou-map-slot .map-compact { padding: 14px 15px; }
+  #guangzhou-map-slot .map-detail { padding: 16px 14px 18px; margin-top: 15px; }
+  .map-detail-head h3 { font-size: 20px; }
+  .map-detail-head p { max-width: none; }
+  .map-detail-body .tbl { gap: 4px 14px; font-size: 12px; }
+  .map-detail-body .v { white-space: normal; }
+}
+@media print {
+  #guangzhou-map-slot .map-upper { display: block; }
+  #guangzhou-map-slot .map-detail { break-before: auto; }
+  .map-compact { display: none; }
+}
+
